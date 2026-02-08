@@ -25,7 +25,11 @@ export default function CheckOutCard() {
   });
   async function handleCheckout(values: CheckoutType) {
     if (paymentFlag == "online") {
-      const data = await onlinePayment(id, "http://localhost:3000/", values);
+      const data = await onlinePayment(
+        id,
+        "https://next-ecommerce-delta-livid.vercel.app",
+        values,
+      );
       if (data.status == "success") {
         window.location.href = data.session.url;
       }
