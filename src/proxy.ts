@@ -3,7 +3,10 @@ import { NextRequest, NextResponse } from "next/server";
 const protectedRoutes = ["/cart", "/allorders"];
 const authRoutes = ["/login", "/register"];
 export async function proxy(request: NextRequest) {
-  const token = await getToken({ req: request });
+  const token = await getToken({
+    req: request,
+    secret: process.env.AUTH_SECRET,
+  });
 
   if (protectedRoutes.includes(request.nextUrl.pathname)) {
     if (token) {

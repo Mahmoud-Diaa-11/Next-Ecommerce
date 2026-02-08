@@ -15,9 +15,9 @@ export default async function getMyToken(): Promise<string | null> {
     secret: process.env.AUTH_SECRET!,
   });
 
-  if (!decoded || typeof decoded.token !== "string") {
+  if (!decoded || typeof decoded.accessToken !== "string") {
     return null;
   }
 
-  return decoded.token;
+  return decoded.accessToken; // لاحظ هنا استخدمنا accessToken بدل token
 }
