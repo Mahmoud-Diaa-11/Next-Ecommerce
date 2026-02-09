@@ -209,12 +209,31 @@ export default function Navbar() {
         </ul>
 
         {/* Mobile Icon */}
+     <div className="flex gap-3">
+         <div className="md:hidden">
+          {theme == "light" ? (
+            <MoonIcon
+              onClick={() => {
+                setTheme("dark");
+              }}
+              className="cursor-pointer"
+            />
+          ) : (
+            <SunIcon
+              onClick={() => {
+                setTheme("light");
+              }}
+              className="cursor-pointer"
+            />
+          )}
+        </div>
         <button
           className="md:hidden cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
+     </div>
       </div>
 
       {/* Mobile Menu */}
