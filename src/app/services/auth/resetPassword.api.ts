@@ -14,14 +14,12 @@ export default async function resetPassword(
       data: values,
     };
     const { data } = await axios.request(options);
-    console.log(data);
     if (data.token) {
       toast.success("success");
       router.push("/login");
     }
   } catch (error: any) {
     toast.error(error.response.data.message);
-    console.log(error);
   } finally {
     toast.dismiss(loadingId);
   }

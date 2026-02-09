@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Eye, Heart, ShoppingCart, Star } from "lucide-react";
+import { Eye, Heart, Star } from "lucide-react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
@@ -11,7 +11,6 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { ProductType } from "@/types/types";
 import { addToWishlist } from "@/app/services/wishlist/addToWishlist.api";
 import MyButton from "@/app/_components/myButton/MyButton";
@@ -20,14 +19,14 @@ export default function ProductsCard({ product }: { product: ProductType }) {
   const queryClient = useQueryClient();
   const { mutate } = useMutation({
     mutationFn: async () => {
-      return await addToWishlist(product.id);
+      return await addToWishlist(product?._id);
     },
     onSuccess: (data) => {
-      toast.success(data.message);
+      toast.success(data?.message);
       queryClient.invalidateQueries({ queryKey: ["getLoggedWishlist"] });
     },
     onError: (data) => {
-      toast.error(data.message);
+      toast.error(data?.message);
     },
   });
 
@@ -60,7 +59,7 @@ export default function ProductsCard({ product }: { product: ProductType }) {
           </div>
         </CardHeader>
         <CardContent>
-          <p>{product?.category.name}</p>
+          <p>{product?.category?.name}</p>
           <Link href={`/products/${product?._id}`}>
             <h4 className="text-2xl line-clamp-1 text-green-600">
               {product?.title}

@@ -251,7 +251,7 @@ export default function RegisterForm() {
               </Field>
             )}
           />
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col gap-3 md:flex-row md:justify-between justify-center items-center">
             <Button
               className="cursor-pointer bg-green-600 transition-all duration-300   hover:bg-white hover:text-green-600 hover:outline-solid hover:outline-green-600 hover:outline-1   text-white "
               variant="outline"

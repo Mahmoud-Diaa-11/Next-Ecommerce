@@ -15,7 +15,7 @@ export default async function page({
 
   const productDetails: ProductType = await getProductDetails(id);
   const relatedProducts: ProductType[] = await getRealatedProducts(
-    productDetails.category._id,
+    productDetails?.category?._id,
   );
 
   return (

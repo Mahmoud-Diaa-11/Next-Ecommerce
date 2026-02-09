@@ -17,8 +17,8 @@ export default function MyButton({
 }) {
   const router = useRouter();
   const cartContext = useContext(CartContext);
-
   const [isLoading, setIsLoading] = useState(false);
+
   async function handleAddToCart() {
     try {
       setIsLoading(true);
