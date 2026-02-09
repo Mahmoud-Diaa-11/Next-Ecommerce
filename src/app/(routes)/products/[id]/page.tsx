@@ -1,5 +1,4 @@
 import ProductDetailsCard from "@/app/_components/ProductDetailsCard/ProductDetailsCard";
-import ProductsCard from "@/app/_components/ProductsCard/ProductsCard";
 import ProductSwiper from "@/app/_components/productSwiper/ProductSwiper";
 import { getRealatedProducts } from "@/app/services/Products/getRelatedProducts.api";
 import { getProductDetails } from "@/app/services/Products/productDetails.api";

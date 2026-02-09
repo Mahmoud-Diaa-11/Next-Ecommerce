@@ -41,10 +41,10 @@ export default function WishListCard() {
     <>
       <div className="container rounded-3xl mt-15  shadow-xl shadow-black/50 p-8">
         {data?.data.length > 0 ? (
-          data?.data.map((product: ProductType) => {
+          data?.data?.map((product: ProductType) => {
             return (
               <div
-                key={product._id}
+                key={product?._id}
                 className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 pt-3 border-b p-3 pb-6 md:pb-3 text-center md:text-left "
               >
                 <div className="flex flex-col md:flex-row md:items-start items-center gap-4">
@@ -53,34 +53,34 @@ export default function WishListCard() {
                     src={product?.imageCover}
                     width={400}
                     height={200}
-                    alt={product.title}
+                    alt={product?.title}
                   />
                   <div className="space-y-1 flex flex-col items-center md:items-start ">
                     <h3 className="font-semibold text-3xl line-clamp-1">
-                      {product.title}
+                      {product?.title}
                     </h3>
                     <p className="text-gray-600 text-lg">
-                      {product.category.name}
+                      {product?.category?.name}
                     </p>
                     <span className="flex items-center gap-1">
                       <Star className="text-yellow-400 fill-yellow-400" />
-                      {product.ratingsAverage}
+                      {product?.ratingsAverage}
                     </span>
                   </div>
                 </div>
                 <div className="flex items-center w-full md:w-auto">
                   <div className="flex flex-col md:flex-row items-center gap-3 w-full">
-                    <p className="text-lg font-semibold">{product.price} EGP</p>
+                    <p className="text-lg font-semibold">{product?.price} EGP</p>
                     <Button
                       className="bg-red-600 dark:text-white cursor-pointer hover:bg-red-700"
                       onClick={() => {
-                        deleteProduct(product._id);
+                        deleteProduct(product?._id);
                       }}
                     >
                       Delete From Wishlist
                       <Trash className="fill-red-500 text-white cursor-pointer" />
                     </Button>
-                    <MyButton id={product._id} />
+                    <MyButton id={product?._id} />
                   </div>
                 </div>
               </div>

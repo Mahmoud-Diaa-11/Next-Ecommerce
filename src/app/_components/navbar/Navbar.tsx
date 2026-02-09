@@ -37,7 +37,7 @@ export default function Navbar() {
 
   if (!mounted) return null;
   return (
-    <nav className="bg-slate-300 p-5 dark:bg-zinc-900 dark:shadow-zinc-800 shadow-xl dark:text-white">
+    <nav className="bg-slate-300 z-50 p-5 dark:bg-zinc-900 dark:shadow-zinc-800 shadow-xl dark:text-white">
       <div className="container flex justify-between items-center">
         {/* Logo */}
         <Link href="/">

@@ -39,6 +39,7 @@ export default function LoginForm() {
         window.location.href = "/";
       }, 2000);
     } else {
+      console.log(response);
       toast.error("invalid email or password", { duration: 3000 });
     }
   };

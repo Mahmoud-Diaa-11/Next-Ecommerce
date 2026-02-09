@@ -127,6 +127,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  button {
+    cursor: pointer;
+  }
 }
 .swiper-wrapper {
   transition-timing-function: linear !important;

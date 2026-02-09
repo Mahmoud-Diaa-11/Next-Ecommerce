@@ -19,7 +19,7 @@ export default function MainProducts() {
     staleTime: 1000 * 60,
   });
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <div className="h-screen fixed inset-0 flex justify-center items-center"><Loading /></div>;
   if (isError) return <p>Something went wrong</p>;
 
   return (

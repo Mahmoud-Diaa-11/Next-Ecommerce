@@ -5,8 +5,9 @@ export default async function getAllProducts() {
       { cache: "no-store" },
     );
     const { data } = await response.json();
-    return data;
+    return data || [];
   } catch (error) {
     console.log(error);
+    return [];
   }
 }

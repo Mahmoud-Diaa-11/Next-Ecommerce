@@ -5,14 +5,18 @@ export async function getLoggedUserWishlist() {
   if (!token) {
     throw new Error("unAuthorized");
   }
-  const response = await fetch(
-    `https://ecommerce.routemisr.com/api/v1/wishlist`,
-    {
-      headers: {
-        token,
+  try {
+    const response = await fetch(
+      `https://ecommerce.routemisr.com/api/v1/wishlist`,
+      {
+        headers: {
+          token,
+        },
       },
-    },
-  );
-  const data = await response.json();
-  return data;
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 }

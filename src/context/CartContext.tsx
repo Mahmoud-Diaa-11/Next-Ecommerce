@@ -17,13 +17,21 @@ export default function CartContextProvider({
 
   async function handleCart() {
     const data = await getLoggedUserCart();
-    setAllProducts(data?.data?.products || []);
-    let sum = 0;
-    data?.data?.products.forEach((product: CartProductType) => {
-      sum += product.count;
-    });
-    setNumOfCartItem(sum);
-    setAllProductsPrice(data?.data?.totalCartPrice || 0);
+    if (data?.status === "success" && data?.data) {
+      setAllProducts(data.data.products || []);
+      let sum = 0;
+      data.data.products?.forEach((product: CartProductType) => {
+        sum += product.count;
+      });
+      setNumOfCartItem(sum);
+      setAllProductsPrice(data.data.totalCartPrice || 0);
+    } else {
+      if (data?.statusCode === 404 || data?.message?.includes("not found")) {
+        setAllProducts([]);
+        setNumOfCartItem(0);
+        setAllProductsPrice(0);
+      }
+    }
     return data;
   }
 

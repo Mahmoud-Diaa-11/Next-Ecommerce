@@ -123,12 +123,12 @@ export default function CheckOutCard() {
               </Field>
             )}
           />
-          <div className="flex items-center gap-5">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-5">
             <Button
               onClick={() => {
                 setPaymentFlag("online");
               }}
-              className="cursor-pointer bg-green-600 transition-all duration-300 hover:bg-white hover:text-green-600 hover:outline-solid hover:outline-green-600 hover:outline-1   text-white "
+              className="cursor-pointer bg-green-600 transition-all duration-300 hover:bg-white hover:text-green-600 hover:outline-solid hover:outline-green-600 hover:outline-1 text-white "
               variant="outline"
             >
               Online Payment
@@ -137,7 +137,7 @@ export default function CheckOutCard() {
               onClick={() => {
                 setPaymentFlag("cash");
               }}
-              className="cursor-pointer bg-green-600 transition-all duration-300 hover:bg-white hover:text-green-600 hover:outline-solid hover:outline-green-600 hover:outline-1   text-white "
+              className="cursor-pointer bg-green-600 transition-all duration-300 hover:bg-white hover:text-green-600 hover:outline-solid hover:outline-green-600 hover:outline-1 text-white "
               variant="outline"
             >
               Cash Payment
